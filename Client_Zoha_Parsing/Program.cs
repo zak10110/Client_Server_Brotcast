@@ -15,39 +15,12 @@ namespace Server_Zoha_Parsing
         {
             try
             {
-                int initcomit = 0;
+         
                 Console.Write("Enter Path:");
                 string path = Console.ReadLine();
                 Client client = new Client("127.0.0.1", 8000, path);
                 client.Conect();
-
-
-
-
-                client.socket.Connect(client.iPEndPoint);
-
-                int bytes = 0;
-
-                byte[] data = new byte[250];
-
-                StringBuilder stringBuilder = new StringBuilder();
-
-
-
-
-                client.SendPathToServ();
-                client.GetAndSendSizeToServ();
-                client.SendFileToServ();
-
-
-                Console.WriteLine($"Sms \"{path}\" send to SERVER [{client.ipAddr}]!");
-
-                do
-                {
-                    bytes = client.socket.Receive(data);
-                    stringBuilder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-                } while (client.socket.Available > 0);
-                Console.WriteLine(stringBuilder.ToString());
+                Console.WriteLine(client.TakeMSGFromServ());
 
 
 

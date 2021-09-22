@@ -62,8 +62,26 @@ namespace Client_Zoha
 
             this.CreateIPEndPoint();
             this.CreateSocet();
+            this.socket.Connect(this.iPEndPoint);
 
         }
+
+        public string TakeMSGFromServ()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            int bytes = 0;
+
+            byte[] data = new byte[250];
+
+            do
+            {
+                bytes = this.socket.Receive(data);
+                stringBuilder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+            } while (this.socket.Available > 0);
+
+            return (stringBuilder.ToString());
+        }
+           
 
     }
 }
