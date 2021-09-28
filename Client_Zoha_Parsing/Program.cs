@@ -1,4 +1,4 @@
-﻿using Client_Zoha;
+﻿
 using System;
 using System.IO;
 using System.Linq;
@@ -17,11 +17,15 @@ namespace Server_Zoha_Parsing
             try
             {
          
-                Console.Write("Enter Path:");
-                string path = Console.ReadLine();
-                Client client = new Client("127.0.0.1", 8000, path);
+             
+                Client client = new Client("127.0.0.1", 8000, "GG");
                 client.Conect();
-                Console.WriteLine(client.TakeMSGFromServ());
+                while (true)
+                {
+                    Console.WriteLine(client.TakeMSGFromServ());
+
+                }
+                
 
 
 

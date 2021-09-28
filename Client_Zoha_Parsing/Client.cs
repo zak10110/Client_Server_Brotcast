@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Client_Zoha
+namespace Server_Zoha_Parsing
 {
     public class Client
     {
@@ -21,10 +21,20 @@ namespace Client_Zoha
             this.ipAddr = ipadres;
             this.port = port;
             this.path = path;
-            this.socket = socket;
+        
+            CreateIPEndPoint();
+            CreateSocet();
 
         }
 
+        public Client(string ipadres, int port, string path,Socket socet)
+        {
+            this.ipAddr = ipadres;
+            this.port = port;
+            this.path = path;
+            this.socket = socet;
+
+        }
 
 
         public void CreateSocet()
@@ -59,9 +69,6 @@ namespace Client_Zoha
 
         public void Conect()
         {
-
-            this.CreateIPEndPoint();
-            this.CreateSocet();
             this.socket.Connect(this.iPEndPoint);
 
         }
@@ -81,7 +88,8 @@ namespace Client_Zoha
 
             return (stringBuilder.ToString());
         }
-           
+
+     
 
     }
 }
