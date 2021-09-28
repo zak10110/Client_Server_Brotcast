@@ -10,6 +10,7 @@ namespace Server_Zoha_Parsing
 {
     class Program
     {
+        static int proverca = 0;
 
         static void Main(string[] args)
         {
