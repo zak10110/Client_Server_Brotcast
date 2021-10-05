@@ -21,8 +21,6 @@ namespace Server_Zoha_Parsing
             this.ipAddr = ipadres;
             this.port = port;
             this.path = path;
-        
-            CreateIPEndPoint();
             CreateSocet();
 
         }

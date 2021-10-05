@@ -37,10 +37,19 @@ namespace Server_Zoha_Parsing
                 {
                     if (clients.Count() > 0)
                     {
-                        SendMsgToALL();
+
+                        Console.WriteLine("[1]-Send MSG TO All:");
+                        try
+                        {
+                            Menue(int.Parse(Console.ReadLine()));
+                        }
+                        catch (Exception)
+                        {
+
+                            Console.WriteLine("You Can Enter Only Nums:");
+                        }
 
                     }
-
                 }
                
               
@@ -142,8 +151,40 @@ namespace Server_Zoha_Parsing
 
         }
 
+        static void Menue(int Choice)
+        {
+
+            switch (Choice)
+            {
+
+                case 1:
+                    {
+                        SendMsgToALL();
+                        break;
+
+                    }
+               
+
+
+
+                default:
+                    break;
+            }
+
+
+
+
+
+
+
+
+
+        }
+
 
     }
 
 
+
+    
 }
